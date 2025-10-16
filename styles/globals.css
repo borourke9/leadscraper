@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Mobile optimizations */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  /* Mobile-friendly scrollbars */
+  .mobile-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .mobile-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+  }
+  
+  .mobile-scroll::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 2px;
+  }
+  
+  .mobile-scroll::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  /* Touch-friendly buttons */
+  .touch-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Mobile-optimized inputs */
+  .mobile-input {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Mobile map fixes */
+  .mobile-map-container {
+    min-height: 200px;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .mobile-map-container > div {
+    min-height: 200px !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Ensure map loads properly on mobile */
+  @media (max-width: 640px) {
+    .mobile-map-container {
+      min-height: 250px;
+    }
+  }
+}
