@@ -78,6 +78,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   console.log('API Key exists:', !!process.env.GOOGLE_API_KEY)
+  console.log('Environment check:', {
+    NODE_ENV: process.env.NODE_ENV,
+    VERCEL: process.env.VERCEL,
+    hasGoogleKey: !!process.env.GOOGLE_API_KEY,
+    keyLength: process.env.GOOGLE_API_KEY?.length || 0
+  })
   console.log('Request params:', { city, state, radiusMiles, categories })
 
   try {
